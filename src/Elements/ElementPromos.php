@@ -17,10 +17,8 @@ use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\DataList;
-<<<<<<< HEAD
-=======
+
 use Antlion\Promotionals\Controllers\ElementPromosController;
->>>>>>> 10cedb0 (re init)
 
 /**
  * Class ElementPromos
@@ -36,11 +34,9 @@ class ElementPromos extends BaseElement
     private static $plural_name = 'Promos Elements';
     private static $table_name = 'ElementPromos';
 
-<<<<<<< HEAD
-=======
+
     private static $controller_class = ElementPromosController::class;
 
->>>>>>> 10cedb0 (re init)
     /**
      * Set to false to prevent an in-line edit form from showing in an elemental area. Instead the element will be
      * clickable and a GridFieldDetailForm will be used.

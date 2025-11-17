@@ -6,16 +6,6 @@ use Antlion\Promotionals\Model\Promo;
 use SilverStripe\ORM\DataList;
 use PageController;
 use SilverStripe\Control\HTTPRequest;
-<<<<<<< HEAD
-
-class PromoPageController extends PageController
-{
-    private static $allowed_actions = ['show'];
-
-    
-    private static $url_handlers = [
-        // put explicit actions first (e.g. category/$Slug) so they don't get eaten by the catch-all
-=======
 use SilverStripe\Control\Email\Email;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FieldList;
@@ -29,6 +19,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\ValidationResult;
 use App\Models\FormSubmission;
 
+
 class PromoPageController extends PageController
 {
     private static $allowed_actions = [
@@ -39,8 +30,7 @@ class PromoPageController extends PageController
 
     private static $url_handlers = [
         // put explicit actions first (e.g. category/$Slug) so they don't get eaten by the catch-all
-        'PromoForm' => 'PromoForm',
->>>>>>> 10cedb0 (re init)
+
         // 'category/$Slug' => 'category',
         '$Slug!' => 'show', // catch-all: /special-offers/<slug>
     ];
@@ -68,8 +58,7 @@ class PromoPageController extends PageController
         }
         return ['Promo' => $promo];
     }
-<<<<<<< HEAD
-=======
+
     /**
      * Resolve the current promo (for detail route like /promos/my-slug)
      */
@@ -194,6 +183,6 @@ class PromoPageController extends PageController
 
         return $this->redirectBack();
     }
->>>>>>> 10cedb0 (re init)
+
 
 }

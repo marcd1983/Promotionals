@@ -3,25 +3,19 @@ namespace Antlion\Promotionals\Pages;
 
 use Page;
 use Antlion\Promotionals\Model\Promo;
-<<<<<<< HEAD
-=======
 use Antlion\Promotionals\Model\PromoCategory;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
->>>>>>> 10cedb0 (re init)
+
 
 class PromoPage extends Page
 {
     private static $table_name = 'PromoPage';
     private static $description = 'Lists all promos and serves detail views';
 
-<<<<<<< HEAD
-    Private static $has_many = [
-        'Promos' => Promo::class,
-    ];
-=======
+
     private static $db = [
         'MailTo'     => 'Varchar(255)',   // fallback recipient (eg: support@site.com)
         'FormSubjectPrefix' => 'Varchar(255)', // eg: "[Promo Enquiry]"
@@ -68,5 +62,5 @@ class PromoPage extends Page
 
         return $fields;
     }
->>>>>>> 10cedb0 (re init)
+
 }
