@@ -12,6 +12,7 @@ use SilverStripe\Admin\ModelAdmin;
  */
 class PromosAdmin extends ModelAdmin
 {
+<<<<<<< HEAD
     /**
      * @var array
      */
@@ -28,5 +29,15 @@ class PromosAdmin extends ModelAdmin
     /**
      * @var string
      */
+=======
+
+    private static $menu_icon_class = 'font-icon-megaphone';
+    // private static $menu_priority = 0.6; 
+    private static $managed_models = [
+        Promo::class,
+        PromoCategory::class,
+    ];
+    private static $url_segment = 'promos';
+>>>>>>> 10cedb0 (re init)
     private static $menu_title = 'Promos';
 }

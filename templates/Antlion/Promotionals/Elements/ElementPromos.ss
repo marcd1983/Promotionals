@@ -8,9 +8,15 @@
 
     <% if $PromoList %>
     <% if $Appearance = 'Carousel' %>
+<<<<<<< HEAD
         <% include Antlion/Promotionals/Includes/PromoCarousel %>
     <% else %>
         <% include Antlion/Promotionals/Includes/PromoGrid %>
+=======
+        <% include PromoCarousel %>
+    <% else %>
+        <% include PromoGrid %>
+>>>>>>> 10cedb0 (re init)
     <% end_if %>    
     <% end_if %>
 </div>

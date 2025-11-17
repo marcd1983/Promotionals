@@ -30,10 +30,18 @@
           </p>
         <% end_if %>
       </header>
+<<<<<<< HEAD
 
       <div class="promo-content">
         $Promo.Content
       </div>
+=======
+      <% if $Promo.Summary %>
+        <div class="promo-summary">
+          <p>$Promo.Summary</p>
+        </div>
+      <% end_if %>
+>>>>>>> 10cedb0 (re init)
       <%-- Optional CTA buttons (if using LinkField / MultiLinkField as $Promo.Links) --%>
       <% if $Promo.Links.Exists %>
           <div class="button-group <% if $Align == 'center' %>align-center<% else_if $Align == 'right' %>align-right<% else %>align-left<% end_if %>">
@@ -44,12 +52,38 @@
         <% end_if %>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+  <div class="grid-x grid-padding-x grid-padding-y">
+    <div class="cell">
+      <div class="promo-content">
+        <%-- $Promo.Content --%>
+        $Promo.ElementalArea
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-x grid-padding-x grid-padding-y">
+    <div class="cell">
+      <div class="promo-enquiry">
+        <h3>Ask about this promotion</h3>
+          <% include FormMessageToast %>
+          $PromoForm
+      </div>
+    </div>
+  </div>
+>>>>>>> 10cedb0 (re init)
 </div>
 <% else %>
   <%-- Fallback (usually not hit because controller 404s when missing) --%>
   <div class="grid-x grid-padding-x grid-padding-y">
     <div class="cell">
+<<<<<<< HEAD
       <div class="callout text-center">
+=======
+      <div class="toast toast--success toast--auto-hide callout alert p-40 text-center">
+>>>>>>> 10cedb0 (re init)
          <p>Sorry, we couldn’t find that promotion.</p>
         <a class="button hollow" href="$Top.Link">&larr; Back to $Top.Title.XML</a>
       </div>

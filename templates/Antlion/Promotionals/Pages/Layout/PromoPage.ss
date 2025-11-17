@@ -13,7 +13,11 @@
 	<div class="grid-promos grid-x grid-padding-x grid-padding-y large-up-4">
     <% loop $Promos %>
       <div class="cell">
+<<<<<<< HEAD
         <% include Antlion/Promotionals/Includes/PromoCard %>
+=======
+        <% include PromoCard %>
+>>>>>>> 10cedb0 (re init)
       </div>
         <% end_loop %>
       </div>

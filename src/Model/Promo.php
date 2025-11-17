@@ -28,6 +28,10 @@ use SilverStripe\ORM\DataList;
 class Promo extends DataObject
 {
     private static $table_name = 'Promo';
+<<<<<<< HEAD
+=======
+    private static string $description = 'Lists all promos and serves detail views';
+>>>>>>> 10cedb0 (re init)
     private static $singular_name = 'Promo';
     private static $plural_name = 'Promos';
 
@@ -43,6 +47,10 @@ class Promo extends DataObject
 
     private static $has_one = [
         'Image' => Image::class,
+<<<<<<< HEAD
+=======
+        'PromoPage'  => PromoPage::class
+>>>>>>> 10cedb0 (re init)
     ];
 
     private static $has_many = [
@@ -70,11 +78,20 @@ class Promo extends DataObject
         'URLSegment' => true
     ];
 
+<<<<<<< HEAD
+=======
+    private static $default_sort = '"IsFeatured" DESC, "StartDate" DESC, "Created" DESC';
+
+>>>>>>> 10cedb0 (re init)
    public function getCMSFields(): FieldList
     {
         $fields = parent::getCMSFields();
 
+<<<<<<< HEAD
         $fields->removeByName(['URLSegment']);
+=======
+        $fields->removeByName(['URLSegment', 'Links', 'Categories']);
+>>>>>>> 10cedb0 (re init)
 
         $fields->dataFieldByName('Summary')?->setRows(3);
 
@@ -95,7 +112,11 @@ class Promo extends DataObject
             MultiLinkField::create('Links', 'CTA Buttons', $this->Links())
         );
 
+<<<<<<< HEAD
         $fields->addFieldsToTab('Root.Schedule', [
+=======
+        $fields->addFieldsToTab('Root.Main', [
+>>>>>>> 10cedb0 (re init)
             DateField::create('StartDate')->setHTML5(true),
             DateField::create('EndDate')->setHTML5(true)
         ]);
@@ -107,7 +128,11 @@ class Promo extends DataObject
         return $fields;
     }
 
+<<<<<<< HEAD
     public function onBeforeWrite()
+=======
+    public function onBeforeWrite(): void
+>>>>>>> 10cedb0 (re init)
     {
         parent::onBeforeWrite();
 
@@ -171,7 +196,11 @@ class Promo extends DataObject
     
     public function Link(): ?string
     {
+<<<<<<< HEAD
         $page = PromoPage::get()->first();
+=======
+        $page = $this->PromoPage() ?: PromoPage::get()->first();
+>>>>>>> 10cedb0 (re init)
         if (!$page) {
             $home = SiteTree::get()->filter('URLSegment', 'home')->first();
             return $home ? $home->Link() : '/';
