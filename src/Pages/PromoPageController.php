@@ -18,7 +18,10 @@ use SilverStripe\Security\SecurityToken;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\ValidationResult;
 use App\Models\FormSubmission;
+<<<<<<< HEAD
 use App\Service\CrmIntegrationService;
+=======
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
 
 
 class PromoPageController extends PageController
@@ -81,6 +84,7 @@ class PromoPageController extends PageController
         $promo = $this->currentPromo();
 
         $fields = FieldList::create(
+<<<<<<< HEAD
             TextField::create('Name', 'Your name')
                 ->setAttribute('autocomplete', 'name'),
             TextField::create('Email', 'Email')
@@ -102,6 +106,16 @@ class PromoPageController extends PageController
                 ->setValue('promo-enquiry'),
             HiddenField::create('PageURL', '')
                 ->setValue($this->getRequest()->getURL(true))
+=======
+            TextField::create('Name', 'Your name')->setAttribute('autocomplete', 'name'),
+            TextField::create('Email', 'Email')->setAttribute('autocomplete', 'email'),
+            TextField::create('Phone', 'Phone (optional)')->setAttribute('autocomplete', 'tel'),
+            TextareaField::create('Message', 'Message')->setRows(5),
+            // context (hidden)
+            HiddenField::create('PromoSlug', '')->setValue($promo?->URLSegment ?? ''),
+            HiddenField::create('PromoTitle', '')->setValue($promo?->Title ?? ''),
+            HiddenField::create('PromoLink', '')->setValue($promo?->Link() ?? $this->Link())
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
         );
 
         $actions = FieldList::create(
@@ -110,6 +124,7 @@ class PromoPageController extends PageController
                 ->addExtraClass('button primary')
         );
 
+<<<<<<< HEAD
         $form = Form::create(
             $this,
             'PromoForm',
@@ -124,6 +139,13 @@ class PromoPageController extends PageController
             $form->enableSpamProtection();
         }
 
+=======
+        $form = Form::create($this, 'PromoForm', $fields, $actions, RequiredFields::create(['Name','Email','Message']));
+        $form->setAttribute('novalidate', true);
+        if (method_exists($form, 'enableSpamProtection')) {
+            $form->enableSpamProtection();
+        }
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
         return $form;
     }
 
@@ -162,6 +184,7 @@ class PromoPageController extends PageController
         ]);
         $submission->write();
 
+<<<<<<< HEAD
         // 🔗 CRM integration hook (safe no-op until a real client is wired)
         $crm = CrmIntegrationService::singleton();
         $crm->captureLead($data, $this->getRequest(), [
@@ -171,6 +194,8 @@ class PromoPageController extends PageController
             'promo_title'  => $promoTitle,
         ]);
 
+=======
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
         // Email subject/body same as before
         $prefix = $this->data()->FormSubjectPrefix ?: '[Promo Enquiry]';
         $subject = sprintf(
@@ -180,6 +205,7 @@ class PromoPageController extends PageController
         );
 
         $body = <<<HTML
+<<<<<<< HEAD
         <p><strong>Promo enquiry</strong></p>
         <p><strong>Promo:</strong> {$promoTitle}<br>
         <strong>Link:</strong> {$promoLink}</p>
@@ -189,6 +215,17 @@ class PromoPageController extends PageController
         <p><strong>Message:</strong><br>
         <pre style="white-space:pre-wrap; font-family:inherit">{$submission->Message}</pre></p>
         HTML;
+=======
+    <p><strong>Promo enquiry</strong></p>
+    <p><strong>Promo:</strong> {$promoTitle}<br>
+    <strong>Link:</strong> {$promoLink}</p>
+    <p><strong>Name:</strong> {$submission->SubmitterName}<br>
+    <strong>Email:</strong> {$submission->SubmitterEmail}<br>
+    <strong>Phone:</strong> {$submission->SubmitterPhone}</p>
+    <p><strong>Message:</strong><br>
+    <pre style="white-space:pre-wrap; font-family:inherit">{$submission->Message}</pre></p>
+    HTML;
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
 
         $email = Email::create()
             ->setTo($to)
@@ -216,4 +253,8 @@ class PromoPageController extends PageController
         return $this->redirectBack();
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
 }
