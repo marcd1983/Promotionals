@@ -1,0 +1,8 @@
+---
+Name: promos-routes
+After:
+  - '#rootroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'promos//$Action/$Slug': Elements\Promotionals\Pages\PromosPageController

@@ -1,0 +1,22 @@
+{
+    "name": "antlion/promotionals",
+    "description": "Promotions",
+    "license": "BSD-3-Clause",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "elemental",
+        "blocks",
+        "promotions"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Antlion\\Promotionals\\": "src/"
+        }
+    },
+    "config": {
+        "process-timeout": 600
+    }
+}
