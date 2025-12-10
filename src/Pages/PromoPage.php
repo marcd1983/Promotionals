@@ -14,10 +14,7 @@ class PromoPage extends Page
 {
     private static $table_name = 'PromoPage';
     private static $description = 'Lists all promos and serves detail views';
-<<<<<<< HEAD
      private static $icon_class = 'font-icon-rocket';
-=======
->>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
 
 
     private static $db = [

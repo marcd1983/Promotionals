@@ -29,11 +29,7 @@ use Antlion\Promotionals\Controllers\ElementPromosController;
 class ElementPromos extends BaseElement
 {
 
-<<<<<<< HEAD
     private static $icon = 'font-icon-block-promo';
-=======
-    private static $icon = 'font-icon-block-banner';
->>>>>>> cb6ebb5974bce53e18e8428bbb7b2af84a3d62d7
     private static $singular_name = 'Promos Element';
     private static $plural_name = 'Promos Elements';
     private static $table_name = 'ElementPromos';
