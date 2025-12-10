@@ -17,6 +17,7 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\LinkField\Models\Link;
 use SilverStripe\LinkField\Form\MultiLinkField;
 use SilverStripe\TagField\TagField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\DataList;
 
 /**
@@ -39,7 +40,9 @@ class Promo extends DataObject
         'URLSegment'  => 'Varchar(255)',
         'StartDate'   => 'Date',
         'EndDate'     => 'Date',
-        'IsFeatured'  => 'Boolean'
+        'IsFeatured'  => 'Boolean',
+        'HideFeaturedImage' => 'Boolean',
+        'HideForm'    => 'Boolean'
     ];
 
     private static $has_one = [
@@ -91,6 +94,9 @@ class Promo extends DataObject
                 UploadField::create('Image', 'Promo image')->setFolderName('Uploads/Promos')
             );
         }
+
+        $fields->addFieldToTab('Root.Main', CheckboxField::create('HideFeaturedImage', 'Hide featured image'));
+        $fields->addFieldToTab('Root.Main', CheckboxField::create('HideForm', 'Hide form'));
 
         $fields->insertAfter('Title', TextField::create('URLSegment', 'URL segment')
             ->setDescription('Used in the detail page URL; leave blank to auto-generate')

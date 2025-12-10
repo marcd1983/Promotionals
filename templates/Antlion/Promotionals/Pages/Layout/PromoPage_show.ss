@@ -31,10 +31,6 @@
         <% end_if %>
       </header>
 
-      <div class="promo-content">
-        $Promo.Content
-      </div>
-
       <% if $Promo.Summary %>
         <div class="promo-summary">
           <p>$Promo.Summary</p>
