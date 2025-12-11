@@ -7,18 +7,19 @@
     </div>
   </nav>
   <div class="grid-x grid-padding-x grid-padding-y">
-    <div class="cell auto">
-      <% if $Promo.Image %>
+    <% if $Promo.Image %>
+    <% if not $Promo.HideFeaturedImage %>
+    <div class="cell large-5">
         <figure class="promo-detail__figure">
           <img
             src="$Promo.Image.FocusFill(800,800).URL"
             alt="$Promo.Image.Title.ATT"
             loading="lazy" />
         </figure>
-      <% end_if %>
     </div>
-
-    <div class="cell large-7">
+    <% end_if %>
+    <% end_if %>
+    <div class="cell auto">
       <header class="promo-header">
         <h1 class="promo-title">$Promo.Title.XML</h1>
         <%-- Optional date window if your Promo has StartDate/EndDate --%>
@@ -47,27 +48,29 @@
         <% end_if %>
     </div>
   </div>
-
-
+  <% if $Promo.Content %>
   <div class="grid-x grid-padding-x grid-padding-y">
     <div class="cell">
       <div class="promo-content">
-        <%-- $Promo.Content --%>
-        $Promo.ElementalArea
+        $Promo.Content
       </div>
     </div>
   </div>
-
+  <% end_if %>
+  <% if $Promo.ElementalArea %>
+    $Promo.ElementalArea
+  <% end_if %>
+  <% if not $Promo.HideForm %>
   <div class="grid-x grid-padding-x grid-padding-y">
     <div class="cell">
       <div class="promo-enquiry">
-        <h3>Ask about this promotion</h3>
+          <h3>Ask about this promotion</h3>
           <% include FormMessageToast %>
           $PromoForm
       </div>
     </div>
   </div>
-
+  <% end_if %>
 </div>
 <% else %>
   <%-- Fallback (usually not hit because controller 404s when missing) --%>
