@@ -60,6 +60,7 @@
   <% if $Promo.ElementalArea %>
     $Promo.ElementalArea
   <% end_if %>
+  
   <% if not $Promo.HideForm %>
   <div class="grid-x grid-padding-x grid-padding-y">
     <div class="cell">

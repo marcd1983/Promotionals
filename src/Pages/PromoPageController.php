@@ -1,7 +1,6 @@
 <?php
 namespace Antlion\Promotionals\Pages;
 
-
 use Antlion\Promotionals\Model\Promo;
 use SilverStripe\ORM\DataList;
 use PageController;
